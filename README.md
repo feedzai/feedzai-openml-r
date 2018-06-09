@@ -1,4 +1,7 @@
 # Feedzai OpenML Provider for R
+[![Build Status](https://travis-ci.org/feedzai/feedzai-openml-r.svg?branch=master)](https://travis-ci.org/feedzai/feedzai-openml-r)
+[![codecov](https://codecov.io/gh/feedzai/feedzai-openml-r/branch/master/graph/badge.svg)](https://codecov.io/gh/feedzai/feedzai-openml-r)
+
 Implementations of the Feedzai OpenML API to allow support for machine
 learning models in the [R programming language](https://www.r-project.org/)
 using [RServe](https://www.rforge.net/Rserve/doc.html). 
@@ -6,6 +9,7 @@ using [RServe](https://www.rforge.net/Rserve/doc.html).
 ## Modules
 
 ### Generic R
+[![Maven metadata URI](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/feedzai/openml-generic-r/maven-metadata.xml.svg)](https://mvnrepository.com/artifact/com.feedzai/openml-generic-r)
 
 You can find in the `openml-generic-r` module a provider that allows
 users to load in code that confirms to a simple API.
@@ -17,11 +21,13 @@ The provider can be pulled from Maven Central:
 <dependency>
   <groupId>com.feedzai</groupId>
   <artifactId>openml-generic-r</artifactId>
-  <version>1.0.0</version>
+  <version>0.1.0</version>
 </dependency>
 ```
 
 ### Caret
+[![Maven metadata URI](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/feedzai/openml-caret/maven-metadata.xml.svg)](https://mvnrepository.com/artifact/com.feedzai/openml-caret)
+
 Another implementation, available in module `openml-caret` adds support for models built with
 [Caret](https://topepo.github.io/caret/index.html).
 
@@ -30,7 +36,7 @@ This module can be pulled from Maven Central:
 <dependency>
   <groupId>com.feedzai</groupId>
   <artifactId>openml-caret</artifactId>
-  <version>1.0.0</version>
+  <version>0.1.0</version>
 </dependency>
 ```
 

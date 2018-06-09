@@ -25,13 +25,13 @@
     <parent>
         <groupId>com.feedzai</groupId>
         <artifactId>openml-r</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>0.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <name>Generic R Feedzai OpenML implementation</name>
     <artifactId>openml-generic-r</artifactId>
 
-    <name>openml-generic-r</name>
 
     <dependencies>
         <dependency>
