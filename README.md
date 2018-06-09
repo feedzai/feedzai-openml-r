@@ -1,5 +1,5 @@
 # Feedzai OpenML Provider for R
-[![Build Status](https://travis-ci.org/feedzai/feedzai-openml-r.svg?branch=master)](https://travis-ci.org/feedzai/feedzai-openml-r)
+[![Build Status](https://travis-ci.com/feedzai/feedzai-openml-r.svg?branch=master)](https://travis-ci.com/feedzai/feedzai-openml-r)
 [![codecov](https://codecov.io/gh/feedzai/feedzai-openml-r/branch/master/graph/badge.svg)](https://codecov.io/gh/feedzai/feedzai-openml-r)
 
 Implementations of the Feedzai OpenML API to allow support for machine
