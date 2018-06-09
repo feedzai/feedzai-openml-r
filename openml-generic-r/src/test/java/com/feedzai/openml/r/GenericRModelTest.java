@@ -47,6 +47,7 @@ import java.util.stream.IntStream;
  * @author Paulo Pereira (paulo.pereira@feedzai.com)
  * @since 0.1.0
  */
+@Ignore("Until we have set up CI with Rserve: https://github.com/feedzai/feedzai-openml-r/issues/1")
 public class GenericRModelTest extends AbstractProviderModelLoadTest<ClassificationGenericRModel,
         GenericRModelLoader, RModelProvider> {
 
