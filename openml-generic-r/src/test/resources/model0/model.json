@@ -1,0 +1,25 @@
+{
+   "targetIndex":1,
+   "fieldSchemas":[
+      {
+         "fieldIndex":0,
+         "fieldName":"PassengerId",
+         "valueSchema":{
+            "@type":"numeric",
+            "allowMissing":false
+         }
+      },
+      {
+         "fieldIndex":1,
+         "fieldName":"Survived",
+         "valueSchema":{
+            "@type":"categorical",
+            "nominalValues":[
+               "a",
+               "b"
+            ],
+            "allowMissing":false
+         }
+      }
+   ]
+}
