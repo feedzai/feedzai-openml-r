@@ -23,7 +23,7 @@ install:
   - docker exec -it test-container mvn install -f /opt/openml/pom.xml -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 script:
-  - docker exec -it test-container mvn install -f /opt/openml/pom.xml cobertura:cobertura
+  - docker exec -it test-container mvn -f /opt/openml/pom.xml test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
