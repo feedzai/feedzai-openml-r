@@ -155,7 +155,7 @@ public class GenericRModelTest extends AbstractProviderModelLoadTest<Classificat
                         .add(
                                 new FieldSchema(
                                         "Survived",
-                                        1,
+                                        2,
                                         new CategoricalValueSchema(false, targetValues)
                                 )
                         )
