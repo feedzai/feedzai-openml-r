@@ -1,6 +1,19 @@
+sudo: yes
+
+services:
+  - docker
+
 language: java
 
-script: "mvn cobertura:cobertura"
+before_install:
+  - docker pull nmldiegues/rserve-caret-java:latest
+  - docker run -v $(pwd):/opt/openml -d --name test-container nmldiegues/rserve-caret-java:latest
+
+install:
+  - docker exec -it test-container mvn install -f /opt/openml/pom.xml -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+script:
+  - docker exec -it test-container mvn install -f /opt/openml/pom.xml cobertura:cobertura
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
