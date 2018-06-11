@@ -22,6 +22,7 @@ The provider can be pulled from Maven Central:
 <dependency>
   <groupId>com.feedzai</groupId>
   <artifactId>openml-generic-r</artifactId>
+  <!-- See project tags for latest version -->
   <version>0.1.0</version>
 </dependency>
 ```
@@ -37,6 +38,7 @@ This module can be pulled from Maven Central:
 <dependency>
   <groupId>com.feedzai</groupId>
   <artifactId>openml-caret</artifactId>
+  <!-- See project tags for latest version -->
   <version>0.1.0</version>
 </dependency>
 ```
