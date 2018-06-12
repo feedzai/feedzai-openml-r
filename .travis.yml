@@ -16,8 +16,8 @@ branches:
     - /^hf-.*$/
     
 before_install:
-  - docker pull henriquevcosta/rserve-caret:1.0.0
-  - docker run -v $(pwd):/opt/openml -d --name test-container henriquevcosta/rserve-caret:1.0.0
+  - docker pull feedzai/rserve-caret:1.0.0
+  - docker run -v $(pwd):/opt/openml -d --name test-container feedzai/rserve-caret:1.0.0
 
 install:
   - docker exec -it test-container mvn install -f /opt/openml/pom.xml -DskipTests=true -Dmaven.javadoc.skip=true -B -V
