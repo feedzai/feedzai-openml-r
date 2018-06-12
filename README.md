@@ -13,7 +13,7 @@ using [RServe](https://www.rforge.net/Rserve/doc.html).
 [![Maven metadata URI](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/feedzai/openml-generic-r/maven-metadata.xml.svg)](https://mvnrepository.com/artifact/com.feedzai/openml-generic-r)
 
 You can find in the `openml-generic-r` module a provider that allows
-users to load in code that confirms to a simple API.
+users to load in code that conforms to a simple API.
 This is the most powerful approach (yet more cumbersome) since models
 can actually hold state.
 
