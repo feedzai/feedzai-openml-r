@@ -92,3 +92,7 @@ install.packages(modNames, dependencies=TRUE, repos = "http://cran.radicaldevelo
 install.packages("Rserve", dependencies=TRUE, repos = "http://cran.radicaldevelop.com/"})
 ```
 
+### Docker 
+Feedzai has built a helpful docker image for testing, [available on docker hub](https://hub.docker.com/r/feedzai/rserve-caret/),
+that is being used in this repository's continuous integration. See the [travis-ci configuration](.travis.yml) commands
+on how to use it.
