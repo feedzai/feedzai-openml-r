@@ -14,7 +14,7 @@ branches:
     - /^\d+\.\d+(\.\d+)?(-\S*)?$/
     #hotfix branches (not being too strict on purpose)
     - /^hf-.*$/
-    
+
 before_install:
   - docker pull feedzai/rserve-caret:1.0.0
   - docker run -v $(pwd):/opt/openml -d --name test-container feedzai/rserve-caret:1.0.0
@@ -31,6 +31,10 @@ after_success:
 notifications:
     # enables comments in the branch with the CI results
     webhooks: https://www.travisbuddy.com/
+
+before_deploy:
+  # Clean up all target dirs created by mvn inside the container so that the deploy script works (permission errors)
+  - docker exec -it test-container bash -v mvn -f /opt/openml/pom.xml clean
 
 deploy:
   provider: script
