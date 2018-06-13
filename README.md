@@ -1,7 +1,7 @@
 # Feedzai OpenML Provider for R
 [![Build Status](https://travis-ci.com/feedzai/feedzai-openml-r.svg?branch=hf-0.1.X)](https://travis-ci.com/feedzai/feedzai-openml-r)
 [![codecov](https://codecov.io/gh/feedzai/feedzai-openml-r/branch/hf-0.1.X/graph/badge.svg)](https://codecov.io/gh/feedzai/feedzai-openml-r)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/206f6d793ad44c06a3039a185a30a8a3)](https://www.codacy.com/app/feedzai/feedzai-openml-r?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=feedzai/feedzai-openml-r&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/206f6d793ad44c06a3039a185a30a8a3?branch=master)](https://www.codacy.com/app/feedzai/feedzai-openml-r?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=feedzai/feedzai-openml-r&amp;utm_campaign=Badge_Grade)
 
 Implementations of the Feedzai OpenML API to allow support for machine
 learning models in the [R programming language](https://www.r-project.org/)
