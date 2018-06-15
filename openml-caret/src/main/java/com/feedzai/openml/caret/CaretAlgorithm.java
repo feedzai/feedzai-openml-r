@@ -147,7 +147,7 @@ public enum CaretAlgorithm implements MLAlgorithmEnum {
      * Functions for fitting the entire solution path of the Elastic-Net.
      */
     ELASTICNET(createDescriptor(
-            "Support Vector Machines with Linear Kernel",
+            "Elastic Net Regularization",
             Collections.emptySet(),
             MachineLearningAlgorithmType.MULTI_CLASSIFICATION,
             "https://cran.r-project.org/web/packages/elasticnet/index.html"
