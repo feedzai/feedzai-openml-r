@@ -12,8 +12,8 @@ using [RServe](https://www.rforge.net/Rserve/doc.html).
 ### Generic R
 [![Maven metadata URI](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/feedzai/openml-generic-r/maven-metadata.xml.svg)](https://mvnrepository.com/artifact/com.feedzai/openml-generic-r)
 
-You can find in the `openml-generic-r` module a provider that allows
-users to load in code that conforms to a simple API.
+The `openml-generic-r` module contains a provider that allows
+developers to load R code that conforms to a simple API.
 This is the most powerful approach (yet more cumbersome) since models
 can actually hold state.
 
@@ -30,7 +30,7 @@ The provider can be pulled from Maven Central:
 ### Caret
 [![Maven metadata URI](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/feedzai/openml-caret/maven-metadata.xml.svg)](https://mvnrepository.com/artifact/com.feedzai/openml-caret)
 
-Another implementation, available in module `openml-caret` adds support for models built with
+The implementation in the `openml-caret` module adds support for models built with
 [Caret](https://topepo.github.io/caret/index.html).
 
 This module can be pulled from Maven Central:
@@ -44,7 +44,7 @@ This module can be pulled from Maven Central:
 ```
 
 ## Building
-This is a maven project which you can build using
+This is a Maven project which you can build using
 ```bash
 mvn clean install
 ```
@@ -52,11 +52,11 @@ mvn clean install
 
 ## Prerequisites for running tests
 
-To use these providers you need to have [R Project](https://www.r-project.org/) installed on your environment.
-After installing R, you need to install the R packages that are being used by the provider. The easiest way is to install them from CRAN.
+To use these providers you need to have [R Project](https://www.r-project.org/) installed in your environment.
+After installing R, you need to install the R packages that the provider uses. The easiest way is to install them from [CRAN](https://cran.r-project.org/).
 
-It should be taken into account that this section only describes the known prerequisites that are common to any model generated in R.
-Before importing a model you need to ensure the required packages for that model are also installed.
+Note that this section only describes the known prerequisites that are common to any model generated in R.
+Before importing a model you need to ensure that the required packages for that model are also installed.
 
 Finally you must install Rserve.
 
