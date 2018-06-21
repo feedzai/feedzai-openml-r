@@ -13,7 +13,7 @@ using [RServe](https://www.rforge.net/Rserve/doc.html).
 [![Maven metadata URI](https://img.shields.io/maven-metadata/v/http/central.maven.org/maven2/com/feedzai/openml-generic-r/maven-metadata.xml.svg)](https://mvnrepository.com/artifact/com.feedzai/openml-generic-r)
 
 The `openml-generic-r` module contains a provider that allows
-developers to load code that conforms to a simple API.
+developers to load R code that conforms to a simple API.
 This is the most powerful approach (yet more cumbersome) since models
 can actually hold state.
 
@@ -53,7 +53,7 @@ mvn clean install
 ## Prerequisites for running tests
 
 To use these providers you need to have [R Project](https://www.r-project.org/) installed in your environment.
-After installing R, you need to install the R packages that the provider uses. The easiest way is to install them from CRAN.
+After installing R, you need to install the R packages that the provider uses. The easiest way is to install them from [CRAN](https://cran.r-project.org/).
 
 Note that this section only describes the known prerequisites that are common to any model generated in R.
 Before importing a model you need to ensure that the required packages for that model are also installed.
