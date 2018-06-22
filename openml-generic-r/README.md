@@ -12,13 +12,13 @@ loadModel <- function() {
     stop("This must be implemented by a concrete provider")
 }
 
-# score the instance stored in the 'instance' global var and returns an array with the probability for each of the classes
-getClassDistribution <- function() {
+# score the instance and returns an array with the probability for each of the classes
+getClassDistribution <- function(instance) {
     stop("This must be implemented by a concrete provider")
 }
 
-# returns the predicted class of the instance stored in the 'instance' global var
-classify <- function() {
+# returns the predicted class of the instance
+classify <- function(instance) {
     stop("This must be implemented by a concrete provider")
 }
 ``` 
