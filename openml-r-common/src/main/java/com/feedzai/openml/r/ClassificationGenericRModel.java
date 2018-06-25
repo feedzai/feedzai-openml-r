@@ -162,11 +162,13 @@ public class ClassificationGenericRModel implements ClassificationMLModel {
      * @return The result of the expression.
      * @throws RserveException If anything goes wrong during the execution of R code.
      * @throws REXPMismatchException If there is an error during the creation of the data frame.
+     * @see <a href="http://rforge.net/Rserve/">Rserve</a>
      */
     private synchronized REXP evaluateInstance(final String function,
                                                final Instance instance) throws RserveException, REXPMismatchException {
-        this.rConnection.assign(ProviderRObject.INSTANCE_VARIABLE.getName(), convertInstanceToDataFrame(instance));
-        return this.rConnection.eval(String.format("%s(%s)", function, ProviderRObject.INSTANCE_VARIABLE.getName()));
+        final String instanceRVar = "instance";
+        this.rConnection.assign(instanceRVar, convertInstanceToDataFrame(instance));
+        return this.rConnection.eval(String.format("%s(%s)", function, instanceRVar));
     }
 
     /**
