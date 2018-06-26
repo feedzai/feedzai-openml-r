@@ -5,7 +5,7 @@ This module contains an [OpenML provider](https://github.com/feedzai/feedzai-ope
 
 The implemented "Classifier" should define the following methods: 
 
-```caret
+```r
 
 # loads a model. This can be a no-op if there's no need to save state  
 loadModel <- function() {
