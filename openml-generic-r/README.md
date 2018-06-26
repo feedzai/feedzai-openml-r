@@ -25,7 +25,7 @@ classify <- function() {
 
 ## Usage
 
-When the user imports a model to the Feedzai platform using this provider, the import assumes a folder called ```script``` containing the R code.
+When the user imports a model to the Feedzai platform using this provider, the import assumes a folder called ```script``` containing the R code in a file called ```classifier.R```.
 
     .
     └── random-forest
