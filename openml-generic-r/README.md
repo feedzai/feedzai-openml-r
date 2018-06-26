@@ -22,3 +22,12 @@ classify <- function() {
     stop("This must be implemented by a concrete provider")
 }
 ``` 
+
+## Usage
+
+When the user imports a model to the Feedzai platform using this provider, the import assumes a folder called ```script``` containing the R code.
+
+    .
+    └── random-forest
+        └── script
+            └── classifier.R
