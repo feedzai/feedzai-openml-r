@@ -34,7 +34,7 @@ notifications:
 
 before_deploy:
   # Clean up all target dirs created by mvn inside the container so that the deploy script works (permission errors)
-  - docker exec -it test-container bash -v mvn -f /opt/openml/pom.xml clean
+  - docker exec -it test-container mvn -f /opt/openml/pom.xml clean
 
 deploy:
   provider: script
