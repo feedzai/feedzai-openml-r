@@ -32,7 +32,6 @@ import com.feedzai.util.algorithm.MLAlgorithmEnum;
 import com.feedzai.util.provider.AbstractProviderModelLoadTest;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -93,6 +92,11 @@ public class GenericRModelTest extends AbstractProviderModelLoadTest<Classificat
     @Override
     public Instance getDummyInstance() {
         return new MockInstance(new double[]{1.0, 0.0});
+    }
+
+    @Override
+    public Instance getDummyInstanceDifferentResult() {
+        return new MockInstance(new double[]{0.0, 1.0});
     }
 
     @Override

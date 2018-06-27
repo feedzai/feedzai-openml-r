@@ -2,10 +2,12 @@ loadModel <- function() {
     return(NULL)
 }
 
-getClassDistribution <- function() {
-    return(data.frame(a=0.3,b=0.7))
+getClassDistribution <- function(instance) {
+    set.seed(instance[1,1])
+    aDist = runif(1)
+    return(data.frame(a = aDist, b = 1 - aDist))
 }
 
-classify <- function() {
+classify <- function(instance) {
     return('a')
 }

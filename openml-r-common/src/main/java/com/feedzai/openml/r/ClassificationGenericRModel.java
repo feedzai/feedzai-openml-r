@@ -89,8 +89,10 @@ public class ClassificationGenericRModel implements ClassificationMLModel {
     @Override
     public double[] getClassDistribution(final Instance instance) {
         try {
-            createEvent(instance);
-            final RList list = executeEvalInRserveConnection(ProviderRObject.CLASS_DISTRIBUTION_FN.getName() + "()").asList();
+            final RList list = evaluateInstance(
+                    ProviderRObject.CLASS_DISTRIBUTION_FN.getName(),
+                    instance
+            ).asList();
 
             final Set<String> targetValues = getTargetValues();
             final double[] classDistribution = new double[targetValues.size()];
@@ -108,8 +110,10 @@ public class ClassificationGenericRModel implements ClassificationMLModel {
     @Override
     public int classify(final Instance instance) {
         try {
-            createEvent(instance);
-            final String predictedClass = executeEvalInRserveConnection(ProviderRObject.CLASSIFICATION_FN.getName() + "()").asString();
+            final String predictedClass = evaluateInstance(
+                    ProviderRObject.CLASSIFICATION_FN.getName(),
+                    instance
+            ).asString();
             return Iterables.indexOf(getTargetValues(), predictedClass::equals);
 
         } catch (final Exception e) {
@@ -148,26 +152,23 @@ public class ClassificationGenericRModel implements ClassificationMLModel {
     }
 
     /**
-     * Uses the connection to Rserve to execute a expression. This method needs to be synchronized because the
-     * connection to Rserve isn't thread-safe.
+     * Calls a R {@code function} to evaluate an {@code instance}.
+     * This function depends on the {@link RConnection connection to Rserve} to run R code. The connection to Rserve
+     * isn't thread-safe and so this method needs to be synchronized.
      *
-     * @param expression The expression to execute.
+     * @param function Name of the R function to evaluate an instance. It's assumed that this function only receives
+     *                 one parameter.
+     * @param instance The instance to be evaluated.
      * @return The result of the expression.
-     * @throws RserveException If anything goes wrong.
+     * @throws RserveException If anything goes wrong during the execution of R code.
+     * @throws REXPMismatchException If there is an error during the creation of the data frame.
+     * @see <a href="http://rforge.net/Rserve/">Rserve</a>
      */
-    private synchronized REXP executeEvalInRserveConnection(final String expression) throws RserveException {
-        return this.rConnection.eval(expression);
-    }
-
-    /**
-     * Creates a new variable in R with the {@code instance} to classify.
-     *
-     * @param instance The instance to classify.
-     * @throws RserveException If there is an error with the connection to Rserve.
-     * @throws REXPMismatchException If it cannot convert an object to an expected type.
-     */
-    private synchronized void createEvent(final Instance instance) throws RserveException, REXPMismatchException {
-        this.rConnection.assign(ProviderRObject.INSTANCE_VARIABLE.getName(), convertInstanceToDataFrame(instance));
+    private synchronized REXP evaluateInstance(final String function,
+                                               final Instance instance) throws RserveException, REXPMismatchException {
+        final String instanceRVar = "instance";
+        this.rConnection.assign(instanceRVar, convertInstanceToDataFrame(instance));
+        return this.rConnection.eval(String.format("%s(%s)", function, instanceRVar));
     }
 
     /**

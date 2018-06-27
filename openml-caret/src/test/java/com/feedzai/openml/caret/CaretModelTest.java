@@ -21,7 +21,6 @@ import com.feedzai.util.provider.AbstractProviderCategoricalTargetTest;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.feedzai.openml.r.ClassificationGenericRModel;
-import org.junit.Ignore;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -59,6 +58,11 @@ public class CaretModelTest extends AbstractProviderCategoricalTargetTest<Classi
     @Override
     public Instance getDummyInstance() {
         return new MockInstance(new double[]{1.0, 0.0, 3.0, 1.0, 22.0, 1.0, 0.0, 7.25, 0.0});
+    }
+
+    @Override
+    public Instance getDummyInstanceDifferentResult() {
+        return new MockInstance(new double[]{0.0, 1.0, 1.0, 0.0, 15.0, 0.0, 1.0, 2.57, 1.0});
     }
 
     @Override

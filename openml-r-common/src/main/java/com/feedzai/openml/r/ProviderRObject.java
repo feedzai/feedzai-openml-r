@@ -32,10 +32,6 @@ public enum ProviderRObject {
      */
     MODEL_VARIABLE("model"),
     /**
-     * Name of the variable used in R to refer to the instance to be classified by the model.
-     */
-    INSTANCE_VARIABLE("instance"),
-    /**
      * Name of the function used in R to load a model.
      */
     LOAD_MODEL_FN("loadModel"),

@@ -1,7 +1,7 @@
-loadModel <- function() {
+loadModel <- function(instance) {
     return(NULL)
 }
 
-classify <- function() {
+classify <- function(instance) {
     return('b')
 }

@@ -27,7 +27,6 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 
-import static com.feedzai.openml.r.ProviderRObject.INSTANCE_VARIABLE;
 import static com.feedzai.openml.r.ProviderRObject.MODEL_VARIABLE;
 
 /**
@@ -75,12 +74,12 @@ public class CaretModelLoader extends GenericRModelLoader {
                 "  temp_Model <- readRDS('%s')\n" +
                 "  return(temp_Model)\n" +
                 "}";
-        final String getClassDistributionFn = "%s <- function() {\n" +
-                "  temp_Distribution <- predict(%s, %s, type='prob')\n" +
+        final String getClassDistributionFn = "%s <- function(instance) {\n" +
+                "  temp_Distribution <- predict(%s, instance, type='prob')\n" +
                 "  return(temp_Distribution)\n" +
                 "}";
-        final String getClassificationFn = "%s <- function() {\n" +
-                "  temp_Classification <- predict(%s, %s, type='raw')\n" +
+        final String getClassificationFn = "%s <- function(instance) {\n" +
+                "  temp_Classification <- predict(%s, instance, type='raw')\n" +
                 "  return(temp_Classification)\n" +
                 "}";
 
@@ -91,12 +90,10 @@ public class CaretModelLoader extends GenericRModelLoader {
                                                LoadModelUtils.getModelFilePath(modelFilePath)));
             rConnection.voidEval(String.format(getClassDistributionFn,
                                                ProviderRObject.CLASS_DISTRIBUTION_FN.getName(),
-                                               MODEL_VARIABLE.getName(),
-                                               INSTANCE_VARIABLE.getName()));
+                                               MODEL_VARIABLE.getName()));
             rConnection.voidEval(String.format(getClassificationFn,
                                                ProviderRObject.CLASSIFICATION_FN.getName(),
-                                               MODEL_VARIABLE.getName(),
-                                               INSTANCE_VARIABLE.getName()));
+                                               MODEL_VARIABLE.getName()));
 
         } catch (final RserveException e) {
             logger.error("Unable to prepare the workspace. Error found: " + rConnection.getLastError());
