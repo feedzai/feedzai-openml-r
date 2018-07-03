@@ -17,7 +17,7 @@ import com.feedzai.openml.data.schema.FieldSchema;
 import com.feedzai.openml.data.schema.NumericValueSchema;
 import com.feedzai.openml.provider.exception.ModelLoadingException;
 import com.feedzai.openml.util.algorithm.MLAlgorithmEnum;
-import com.feedzai.util.provider.AbstractProviderCategoricalTargetTest;
+import com.feedzai.openml.util.provider.AbstractProviderCategoricalTargetTest;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.feedzai.openml.r.ClassificationGenericRModel;

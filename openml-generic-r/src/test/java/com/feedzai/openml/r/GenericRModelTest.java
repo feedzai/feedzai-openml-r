@@ -29,7 +29,7 @@ import com.feedzai.openml.data.schema.NumericValueSchema;
 import com.feedzai.openml.provider.exception.ModelLoadingException;
 import com.feedzai.openml.util.algorithm.GenericAlgorithm;
 import com.feedzai.openml.util.algorithm.MLAlgorithmEnum;
-import com.feedzai.util.provider.AbstractProviderModelLoadTest;
+import com.feedzai.openml.util.provider.AbstractProviderModelLoadTest;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import org.junit.Rule;
