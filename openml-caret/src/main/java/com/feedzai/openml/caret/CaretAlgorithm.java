@@ -11,11 +11,11 @@ package com.feedzai.openml.caret;
 
 import com.feedzai.openml.provider.descriptor.MLAlgorithmDescriptor;
 import com.feedzai.openml.provider.descriptor.MachineLearningAlgorithmType;
-import com.feedzai.util.algorithm.MLAlgorithmEnum;
+import com.feedzai.openml.util.algorithm.MLAlgorithmEnum;
 
 import java.util.Collections;
 
-import static com.feedzai.util.algorithm.MLAlgorithmEnum.createDescriptor;
+import static com.feedzai.openml.util.algorithm.MLAlgorithmEnum.createDescriptor;
 
 /**
  * Specifies the algorithms of the models generated in Caret that are supported by Pulse to be imported.
