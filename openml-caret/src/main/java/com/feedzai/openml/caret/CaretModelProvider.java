@@ -12,7 +12,7 @@ package com.feedzai.openml.caret;
 import com.feedzai.openml.model.MachineLearningModel;
 import com.feedzai.openml.provider.MachineLearningProvider;
 import com.feedzai.openml.provider.descriptor.MLAlgorithmDescriptor;
-import com.feedzai.util.algorithm.MLAlgorithmEnum;
+import com.feedzai.openml.util.algorithm.MLAlgorithmEnum;
 
 import java.util.Optional;
 import java.util.Set;

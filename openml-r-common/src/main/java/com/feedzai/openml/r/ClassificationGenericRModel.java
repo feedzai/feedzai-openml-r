@@ -20,7 +20,7 @@
 
 package com.feedzai.openml.r;
 
-import com.feedzai.util.data.encoding.EncodingHelper;
+import com.feedzai.openml.util.data.encoding.EncodingHelper;
 import com.feedzai.openml.data.Instance;
 import com.feedzai.openml.data.schema.AbstractValueSchema;
 import com.feedzai.openml.data.schema.CategoricalValueSchema;
