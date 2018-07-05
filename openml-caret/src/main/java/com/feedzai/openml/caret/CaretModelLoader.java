@@ -13,11 +13,11 @@ import com.feedzai.openml.data.schema.DatasetSchema;
 import com.feedzai.openml.provider.descriptor.fieldtype.ParamValidationError;
 import com.feedzai.openml.provider.exception.ModelLoadingException;
 import com.feedzai.openml.provider.model.MachineLearningModelLoader;
-import com.feedzai.util.load.LoadModelUtils;
-import com.feedzai.util.validate.ValidationUtils;
-import com.google.common.collect.ImmutableList;
 import com.feedzai.openml.r.GenericRModelLoader;
 import com.feedzai.openml.r.ProviderRObject;
+import com.feedzai.openml.util.load.LoadModelUtils;
+import com.feedzai.openml.util.validate.ValidationUtils;
+import com.google.common.collect.ImmutableList;
 import org.rosuda.REngine.Rserve.RConnection;
 import org.rosuda.REngine.Rserve.RserveException;
 import org.slf4j.Logger;
@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 import static com.feedzai.openml.r.ProviderRObject.MODEL_VARIABLE;
+
 
 /**
  * Implementation of the {@link MachineLearningModelLoader}.
