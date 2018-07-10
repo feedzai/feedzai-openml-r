@@ -1,4 +1,4 @@
-Reusable Python Logic for OpenML
+Reusable R Logic for OpenML
 ------------------------------------------------------------
 
 This module contains classes and logic related with the import of R models to the Feedzai platform.
