@@ -103,15 +103,15 @@
                 <version>${openml-api.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.google.auto.service</groupId>
+                <artifactId>auto-service</artifactId>
+                <version>1.0-rc2</version>
+            </dependency>
+            <dependency>
                 <groupId>com.feedzai</groupId>
                 <artifactId>openml-utils</artifactId>
                 <version>${openml-api.version}</version>
                 <type>test-jar</type>
-            </dependency>
-            <dependency>
-                <groupId>com.feedzai</groupId>
-                <artifactId>openml-example</artifactId>
-                <version>${openml-api.version}</version>
             </dependency>
 
             <!--Apache commons-->
