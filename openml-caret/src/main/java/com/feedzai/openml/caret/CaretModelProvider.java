@@ -13,6 +13,7 @@ import com.feedzai.openml.model.MachineLearningModel;
 import com.feedzai.openml.provider.MachineLearningProvider;
 import com.feedzai.openml.provider.descriptor.MLAlgorithmDescriptor;
 import com.feedzai.openml.util.algorithm.MLAlgorithmEnum;
+import com.google.auto.service.AutoService;
 
 import java.util.Optional;
 import java.util.Set;
@@ -25,6 +26,7 @@ import java.util.Set;
  * @author Paulo Pereira (paulo.pereira@feedzai.com)
  * @since 0.1.0
  */
+@AutoService(MachineLearningProvider.class)
 public class CaretModelProvider implements MachineLearningProvider<CaretModelLoader> {
 
     /**
