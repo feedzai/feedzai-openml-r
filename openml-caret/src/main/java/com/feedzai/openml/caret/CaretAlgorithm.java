@@ -156,7 +156,7 @@ public enum CaretAlgorithm implements MLAlgorithmEnum {
     /**
      * {@link MLAlgorithmDescriptor} for this algorithm.
      */
-    public final MLAlgorithmDescriptor descriptor;
+    private final MLAlgorithmDescriptor descriptor;
 
     /**
      * Constructor.
