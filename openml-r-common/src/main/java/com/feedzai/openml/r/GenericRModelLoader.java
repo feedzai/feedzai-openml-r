@@ -29,6 +29,7 @@ import com.feedzai.openml.util.load.LoadSchemaUtils;
 import com.feedzai.openml.util.validate.ClassificationValidationUtils;
 import com.feedzai.openml.util.validate.ValidationUtils;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import org.rosuda.REngine.REXPMismatchException;
 import org.rosuda.REngine.Rserve.RConnection;
 import org.rosuda.REngine.Rserve.RserveException;
@@ -68,6 +69,7 @@ public class GenericRModelLoader implements MachineLearningModelLoader<Classific
                                                  final DatasetSchema schema) throws ModelLoadingException {
 
         logger.info(String.format("Trying to load a model in path [%s]...", modelPath));
+        ClassificationValidationUtils.validateParamsModelToLoad(this, modelPath, schema, ImmutableMap.of());
 
         final RConnection rConnection;
 
