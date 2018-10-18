@@ -37,10 +37,12 @@
         <dependency>
             <groupId>com.feedzai</groupId>
             <artifactId>openml-api</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.feedzai</groupId>
             <artifactId>openml-utils</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.google.auto.service</groupId>
@@ -50,6 +52,7 @@
             <groupId>com.feedzai</groupId>
             <artifactId>openml-utils</artifactId>
             <type>test-jar</type>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
