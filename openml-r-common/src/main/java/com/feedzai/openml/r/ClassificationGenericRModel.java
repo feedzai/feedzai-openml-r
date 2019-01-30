@@ -28,6 +28,8 @@ import com.feedzai.openml.data.schema.DatasetSchema;
 import com.feedzai.openml.data.schema.FieldSchema;
 import com.feedzai.openml.model.ClassificationMLModel;
 import com.feedzai.openml.model.MachineLearningModel;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Iterables;
 import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.REXPDouble;
@@ -81,7 +83,8 @@ public class ClassificationGenericRModel implements ClassificationMLModel {
      * @param schema      The {@link DatasetSchema} the model uses.
      */
     public ClassificationGenericRModel(final RConnection rConnection,
-                                final DatasetSchema schema) {
+                                       final DatasetSchema schema) {
+        Preconditions.checkArgument(schema.getTargetFieldSchema().isPresent(), "R Models require a target variable.");
         this.rConnection = rConnection;
         this.schema = schema;
     }
@@ -144,11 +147,12 @@ public class ClassificationGenericRModel implements ClassificationMLModel {
      * @return the values of the target variable.
      */
     private Set<String> getTargetValues() {
-        final AbstractValueSchema valueSchema = this.schema.getTargetFieldSchema().getValueSchema();
-        if (valueSchema instanceof CategoricalValueSchema) {
-            return ((CategoricalValueSchema) valueSchema).getNominalValues();
-        }
-        return Collections.emptySet();
+        return this.schema.getTargetFieldSchema()
+                .map(FieldSchema::getValueSchema)
+                .filter(CategoricalValueSchema.class::isInstance)
+                .map(CategoricalValueSchema.class::cast)
+                .map(CategoricalValueSchema::getNominalValues)
+                .orElse(ImmutableSortedSet.of());
     }
 
     /**
