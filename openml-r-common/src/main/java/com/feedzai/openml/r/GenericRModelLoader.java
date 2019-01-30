@@ -67,7 +67,6 @@ public class GenericRModelLoader implements MachineLearningModelLoader<Classific
     @Override
     public ClassificationGenericRModel loadModel(final Path modelPath,
                                                  final DatasetSchema schema) throws ModelLoadingException {
-
         logger.info(String.format("Trying to load a model in path [%s]...", modelPath));
         ClassificationValidationUtils.validateParamsModelToLoad(this, modelPath, schema, ImmutableMap.of());
 
@@ -95,7 +94,14 @@ public class GenericRModelLoader implements MachineLearningModelLoader<Classific
     public List<ParamValidationError> validateForLoad(final Path modelPath,
                                                       final DatasetSchema schema,
                                                       final Map<String, String> params) {
-        return ValidationUtils.baseLoadValidations(schema, params);
+        final ImmutableList.Builder<ParamValidationError> builder = ImmutableList.builder();
+
+        builder.addAll(ValidationUtils.baseLoadValidations(schema, params));
+        if (!schema.getTargetFieldSchema().isPresent()) {
+            builder.add(new ParamValidationError("R Models must refer a target field in the correspondent schema."));
+        }
+
+        return builder.build();
     }
 
     /**
