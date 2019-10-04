@@ -3,9 +3,11 @@ loadModel <- function() {
 }
 
 getClassDistribution <- function(instance) {
-    return(data.frame(a=0.6,b=0.4))
+    set.seed(instance[1,1])
+    aDist = runif(1)
+    return(data.frame(a = aDist, b = 1 - aDist))
 }
 
 classify <- function(instance) {
-    return('b')
+    return('a')
 }
