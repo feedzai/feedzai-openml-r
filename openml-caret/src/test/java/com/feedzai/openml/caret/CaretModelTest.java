@@ -21,6 +21,7 @@ import com.feedzai.openml.util.provider.AbstractProviderCategoricalTargetTest;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.feedzai.openml.r.ClassificationGenericRModel;
+import org.junit.Test;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -54,6 +55,20 @@ public class CaretModelTest extends AbstractProviderCategoricalTargetTest<Classi
      * Values of the target variable from the model stored in {@link #GBM_FILE_NAME}.
      */
     private static final Set<String> GBM_TARGET_VALUES = ImmutableSet.of("0", "1");
+
+    /**
+     * Checks the method #classify() to ensure that Caret classifies correctly the index of maximum value of the scores' list.
+     */
+    @Test
+    public void canGetClassDistributionMaxValueIndex() throws ModelLoadingException {
+
+        final ClassificationGenericRModel model = getFirstModel();
+
+        final Instance instance = getDummyInstance();
+
+        this.canGetClassDistributionMaxValueIndex(model, instance);
+
+    }
 
     @Override
     public Instance getDummyInstance() {

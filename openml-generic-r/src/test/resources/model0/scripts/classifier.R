@@ -9,5 +9,5 @@ getClassDistribution <- function(instance) {
 }
 
 classify <- function(instance) {
-    return('b')
+    return('a')
 }

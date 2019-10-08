@@ -21,11 +21,11 @@
 package com.feedzai.openml.r;
 
 import com.feedzai.openml.data.Instance;
-import com.feedzai.openml.mocks.MockInstance;
 import com.feedzai.openml.data.schema.CategoricalValueSchema;
 import com.feedzai.openml.data.schema.DatasetSchema;
 import com.feedzai.openml.data.schema.FieldSchema;
 import com.feedzai.openml.data.schema.NumericValueSchema;
+import com.feedzai.openml.mocks.MockInstance;
 import com.feedzai.openml.provider.exception.ModelLoadingException;
 import com.feedzai.openml.util.algorithm.GenericAlgorithm;
 import com.feedzai.openml.util.algorithm.MLAlgorithmEnum;
@@ -75,6 +75,20 @@ public class GenericRModelTest extends AbstractProviderModelLoadTest<Classificat
      */
     @Rule
     public final ExpectedException exception = ExpectedException.none();
+
+    /**
+     * Checks the method #classify() to ensure that generic-R classifies correctly the index of maximum value of the scores' list.
+     */
+    @Test
+    public void canGetClassDistributionMaxValueIndex() throws ModelLoadingException {
+
+        final ClassificationGenericRModel model = getFirstModel();
+
+        final Instance instance = getDummyInstanceDifferentResult();
+
+        this.canGetClassDistributionMaxValueIndex(model, instance);
+
+    }
 
     /**
      * Tests loading a model that doesn't contain all the required functions.
