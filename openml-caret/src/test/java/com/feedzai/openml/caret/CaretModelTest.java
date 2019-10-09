@@ -10,17 +10,18 @@
 package com.feedzai.openml.caret;
 
 import com.feedzai.openml.data.Instance;
-import com.feedzai.openml.mocks.MockInstance;
 import com.feedzai.openml.data.schema.CategoricalValueSchema;
 import com.feedzai.openml.data.schema.DatasetSchema;
 import com.feedzai.openml.data.schema.FieldSchema;
 import com.feedzai.openml.data.schema.NumericValueSchema;
+import com.feedzai.openml.mocks.MockInstance;
+import com.feedzai.openml.model.ClassificationMLModel;
 import com.feedzai.openml.provider.exception.ModelLoadingException;
+import com.feedzai.openml.r.ClassificationGenericRModel;
 import com.feedzai.openml.util.algorithm.MLAlgorithmEnum;
 import com.feedzai.openml.util.provider.AbstractProviderCategoricalTargetTest;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import com.feedzai.openml.r.ClassificationGenericRModel;
 import org.junit.Test;
 
 import java.util.Set;
@@ -57,10 +58,14 @@ public class CaretModelTest extends AbstractProviderCategoricalTargetTest<Classi
     private static final Set<String> GBM_TARGET_VALUES = ImmutableSet.of("0", "1");
 
     /**
-     * Checks the method #classify() to ensure that Caret classifies correctly the index of maximum value of the scores' list.
+     * Verifies that the {@link ClassificationMLModel#classify(Instance)} " returns the index of the greatest value in
+     * the class probability distribution produced by the calling
+     * {@link ClassificationMLModel#getClassDistribution(Instance)} on the model
+     *
+     * @see ClassificationMLModel
      */
     @Test
-    public void canGetClassDistributionMaxValueIndex() throws ModelLoadingException {
+    public void canGetClassDistributionMaxValueIndex() throws Exception {
 
         final ClassificationGenericRModel model = getFirstModel();
 
