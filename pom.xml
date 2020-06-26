@@ -78,7 +78,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.source>1.8</project.source>
-        <guava.version>18.0</guava.version>
         <commons-io.version>2.4</commons-io.version>
         <junit.version>4.12</junit.version>
         <logback.version>1.2.3</logback.version>
@@ -121,11 +120,13 @@
                 <version>${commons-io.version}</version>
             </dependency>
 
-            <!--Guava-->
+            <!-- Use the same dependencies versions of openml-api -->
             <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
+                <groupId>com.feedzai</groupId>
+                <artifactId>openml</artifactId>
+                <version>${openml-api.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
             </dependency>
 
             <!--Logging -->
