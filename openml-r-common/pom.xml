@@ -54,7 +54,10 @@
         <dependency>
             <groupId>org.rosuda.REngine</groupId>
             <artifactId>Rserve</artifactId>
-            <version>1.8.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.rosuda.REngine</groupId>
+            <artifactId>REngine</artifactId>
         </dependency>
 
         <dependency>
@@ -74,6 +77,11 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
         </dependency>
 
     </dependencies>
