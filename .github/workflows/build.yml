@@ -41,8 +41,16 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: Build and test
-        run: mvn test -B
+      - name: Start docker
+        run: |
+          docker pull feedzai/rserve-caret:1.0.0 &&
+          docker run -v $(pwd):/opt/openml -d --name test-container feedzai/rserve-caret:1.0.0
+
+      - name: Install in docker
+        run: docker exec test-container mvn install -f /opt/openml/pom.xml -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+      - name: Run tests in docker
+        run: docker exec test-container mvn -f /opt/openml/pom.xml test
 
       - uses: codecov/codecov-action@v1
         with:
